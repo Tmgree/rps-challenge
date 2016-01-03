@@ -1,3 +1,10 @@
+def no_attacks
+  if @game.array[1].attack_type[0]==nil && @game.array[0].attack_type[0]==nil
+
+    true
+  end
+end
+
 def player_one_win
   if @game.array[0].attack_type[0]=="Rock" && @game.array[1].attack_type[0]=="Scissors" ||
     @game.array[0].attack_type[0]=="Paper" && @game.array[1].attack_type[0]=="Rock" ||

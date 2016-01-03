@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game=$game
-    if @game.array[1].attack_type[0]==nil && @game.array[0].attack_type[0]==nil
+    if no_attacks==true
     erb(:play)
   elsif player_one_win==true
     erb(:game_over1)
