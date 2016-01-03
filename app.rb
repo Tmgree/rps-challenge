@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/player'
 require './lib/game'
+require './lib/game_outcome.rb'
 
 
 
@@ -24,17 +25,11 @@ class Battle < Sinatra::Base
     @game=$game
     if @game.array[1].attack_type[0]==nil && @game.array[0].attack_type[0]==nil
     erb(:play)
-  elsif @game.array[0].attack_type[0]=="Rock" && @game.array[1].attack_type[0]=="Scissors" ||
-    @game.array[0].attack_type[0]=="Paper" && @game.array[1].attack_type[0]=="Rock" ||
-    @game.array[0].attack_type[0]=="Scissors" && @game.array[1].attack_type[0]=="Paper"
+  elsif player_one_win==true
     erb(:game_over1)
-  elsif @game.array[1].attack_type[0]=="Rock" && @game.array[0].attack_type[0]=="Scissors" ||
-    @game.array[1].attack_type[0]=="Paper" && @game.array[0].attack_type[0]=="Rock" ||
-    @game.array[1].attack_type[0]=="Scissors" && @game.array[0].attack_type[0]=="Paper"
+  elsif player_two_win==true
     erb(:game_over2)
-  elsif @game.array[1].attack_type[0]=="Rock" && @game.array[0].attack_type[0]=="Rock" ||
-    @game.array[1].attack_type[0]=="Paper" && @game.array[0].attack_type[0]=="Paper" ||
-    @game.array[1].attack_type[0]=="Scissors" && @game.array[0].attack_type[0]=="Scissors"
+  elsif game_draw==true
     erb(:game_overdraw)
   else
     erb(:play)
