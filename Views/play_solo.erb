@@ -1,0 +1,14 @@
+<%= @game.player1.name %> Vs. <%= @game.player2.name %>
+<br>
+Choose An Attack!
+
+<form action="/attack_rock">
+  <input type="submit" value="Rock"/>
+</form>
+<form action="/attack_paper">
+  <input type="submit" value="Paper"/>
+</form>
+
+<form action="/attack_scissors">
+  <input type="submit" value="Scissors"/>
+</form>
